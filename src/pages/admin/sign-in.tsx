@@ -19,6 +19,7 @@ function AuthSignIn() {
     return (
         <div className='w-screen h-screen relative'>
             <div className='lg:w-1/3 md:w-1/2 w-[95vw] h-fit absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg p-6'>
+                <h1>WELCOME</h1>
                 <div>
                     <label className='text-sm text-gray-500'>Username</label>
                     <input
