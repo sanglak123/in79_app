@@ -1,12 +1,15 @@
 import api_auth from '@/server/api/auth';
+import { baseUrl } from '@/server/api/config';
+import { IUser } from '@/server/db/models/users';
+import useCompany from '@/server/swr/useCompany';
+import Image from 'next/image';
 import React, { useState } from 'react';
 
 function AuthSignIn() {
-    const [user, setUser] = useState({
-        username: "",
-        password: ""
-    });
-
+    const [user, setUser] = useState({} as IUser);
+    //swr
+    const Company = useCompany();
+    console.log(Company.data);
     const onChangeUser = (e: any) => {
         const { name, value } = e.target;
         setUser({ ...user, [name]: value })
@@ -19,12 +22,21 @@ function AuthSignIn() {
     return (
         <div className='w-screen h-screen relative'>
             <div className='lg:w-1/3 md:w-1/2 w-[95vw] h-fit absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg p-6'>
-                <h1>WELCOME</h1>
+                <div className='p-6'>
+                    <Image
+                        alt='logo'
+                        src={`/img/logos/${Company.data?.logo}`}
+                        width={200}
+                        height={200}
+                        className='object-contain h-32 w-auto mx-auto drop-shadow-md drop-shadow-blue-600'
+                        priority
+                    />
+                </div>
                 <div>
                     <label className='text-sm text-gray-500'>Username</label>
                     <input
                         autoFocus
-                        className='w-full px-3 py-2 rounded-md shadow-sm border border-gray-400 focus:outline-none'
+                        className='w-full px-3 py-2 rounded-md shadow-sm border border-gray-300 focus:outline-none'
                         placeholder='Enter your username...'
                         name='username'
                         onChange={onChangeUser}
@@ -34,7 +46,7 @@ function AuthSignIn() {
                 <div>
                     <label className='text-sm text-gray-500'>Password</label>
                     <input
-                        className='w-full px-3 py-2 rounded-md shadow-sm border border-gray-400 focus:outline-none'
+                        className='w-full px-3 py-2 rounded-md shadow-sm border border-gray-300 focus:outline-none'
                         placeholder='Enter your password...'
                         type='password'
                         name='password'

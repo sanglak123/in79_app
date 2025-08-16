@@ -6,6 +6,11 @@ import {
   DataTypes,
 } from 'sequelize';
 import sequelize from '../config/connection';
+
+export interface IPosition {
+  id: number
+  name: string
+}
 export default class Positions extends Model<
   InferAttributes<Positions>,
   InferCreationAttributes<Positions>

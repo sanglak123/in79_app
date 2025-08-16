@@ -6,6 +6,18 @@ import {
   DataTypes,
 } from 'sequelize';
 import sequelize from '../config/connection';
+import { IPosition } from './positions';
+export interface IUser {
+  id: number;
+  username: string
+  password: string
+  displayname: string
+  email: string
+  phone: string
+  address: string
+  idPosition: number
+  Position: IPosition
+}
 export default class Users extends Model<
   InferAttributes<Users>,
   InferCreationAttributes<Users>

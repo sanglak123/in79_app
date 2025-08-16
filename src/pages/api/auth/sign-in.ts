@@ -1,16 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { Users } from "@/server/db/models";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { Fail } from "../data/companys";
 
 type Data = {
     username: string;
     password: string;
 };
-
-type Fail = {
-    error: string
-}
-
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data | Fail>,

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node app.js",
+    "dev": "tsx db-test.ts && node app.js npx",
     "build": "next build",
     "start": "NODE_ENV=production node app.js"
   },
@@ -15,7 +15,8 @@
     "next": "15.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "sequelize": "^6.37.7"
+    "sequelize": "^6.37.7",
+    "swr": "^2.3.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -26,6 +27,8 @@
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
     "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.4",
     "typescript": "^5.9.2"
   }
 }
