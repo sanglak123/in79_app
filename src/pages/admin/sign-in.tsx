@@ -62,6 +62,15 @@ function AuthSignIn() {
                         Sign in
                     </button>
                 </div>
+                <div className='my-3 w-full flex justify-end'>
+                    <button
+                        aria-label='Đăng nhập'
+                        className='border bg-blue-600 p-3 w-[250px] rounded-md text-white me-auto transition-colors duration-300 hover:bg-white hover:text-blue-600 cursor-pointer'
+                        onClick={handle_sign_in}
+                    >
+                        Sign in
+                    </button>
+                </div>
             </div>
         </div>
     );
