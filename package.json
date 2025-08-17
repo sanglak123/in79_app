@@ -2,8 +2,8 @@
   "name": "in79_app",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "tsx db-test.ts && node app.js npx",
+  "scripts": {  
+    "dev": "node app.js",
     "build": "next build",
     "start": "NODE_ENV=production node app.js"
   },
