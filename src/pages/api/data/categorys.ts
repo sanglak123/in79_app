@@ -1,21 +1,18 @@
-import {  Images } from "@/server/db/models"
+import {  Categorys } from "@/server/db/models"
 import type { NextApiRequest, NextApiResponse } from "next";
+
 
 export interface Fail {
     error: string
 }
 export default async function handler(
     req: NextApiRequest,
-    res: NextApiResponse<Images[] | Fail>,
+    res: NextApiResponse<Categorys[] | Fail>,
 ) {
     if (req.method === "GET") {
         try {
-            const listBanner = await Images.findAll({
-                where: {
-                    folder: "banners"
-                }
-            });
-            return res.status(200).json(listBanner);
+            const categorys = await Categorys.findAll();
+            return res.status(200).json(categorys);
 
         } catch (error) {
             return res.status(500).json({ error: "Internal Server Error" });

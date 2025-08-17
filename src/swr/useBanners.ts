@@ -1,6 +1,7 @@
+import { root_axios } from "@/server/api/config";
+import { IImage } from "@/server/db/models/images";
 import useSWR from "swr";
-import { root_axios } from "../api/config"
-import { IImage } from "../db/models/images";
+
 
 const fetcher = async (url: string) => {
     const res = await root_axios({

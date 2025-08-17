@@ -1,4 +1,4 @@
-import {  Images } from "@/server/db/models"
+import { Products } from "@/server/db/models"
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export interface Fail {
@@ -6,21 +6,20 @@ export interface Fail {
 }
 export default async function handler(
     req: NextApiRequest,
-    res: NextApiResponse<Images[] | Fail>,
+    res: NextApiResponse<Products | Fail>,
 ) {
     if (req.method === "GET") {
+        const { link } = req.query;
         try {
-            const listBanner = await Images.findAll({
+            const product = await Products.findOne({
                 where: {
-                    folder: "banners"
+                    link: link
                 }
             });
-            return res.status(200).json(listBanner);
-
+            if (product) return res.status(200).json(product);
         } catch (error) {
             return res.status(500).json({ error: "Internal Server Error" });
         }
-
     } else {
         return res.status(405).json({ error: 'Method Not Allowed' });
     }
