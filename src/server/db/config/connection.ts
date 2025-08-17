@@ -2,8 +2,6 @@
 import { Sequelize } from 'sequelize';
 import 'dotenv/config';
 
-let sequelize: Sequelize;
-
 const connection = {
     DB_DATABASE: process.env.DB_DATABASE,
     DB_USERNAME: process.env.DB_USERNAME,
@@ -16,7 +14,7 @@ if (!connection.DB_DATABASE || !connection.DB_USERNAME) {
     throw new Error('Missing DB_DATABASE or DB_USERNAME in environment variables');
 }
 
-sequelize = new Sequelize(connection.DB_DATABASE, connection.DB_USERNAME, connection.DB_PASSWORD, {
+const sequelize = new Sequelize(connection.DB_DATABASE, connection.DB_USERNAME, connection.DB_PASSWORD, {
     host: connection.DB_HOST,   
     dialect: connection.DB_DIALECT as any,
 });

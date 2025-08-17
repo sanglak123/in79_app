@@ -1,6 +1,7 @@
 import { root_axios } from "@/server/api/config";
 import { ICategory } from "@/server/db/models/categorys";
 import useSWR from "swr";
+import HttpError from ".";
 
 
 const fetcher = async (url: string) => {
@@ -12,9 +13,7 @@ const fetcher = async (url: string) => {
         const categorys: ICategory[] = res.data;
         return categorys;
     }
-    const error: any = new Error("Not authorized!");
-    error.status = 403;
-    throw error;
+    throw new HttpError("Not authorized!", 403);
 };
 
 export default function useCategorys() {

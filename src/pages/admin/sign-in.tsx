@@ -1,7 +1,6 @@
 import api_auth from '@/server/api/auth';
-import { baseUrl } from '@/server/api/config';
 import { IUser } from '@/server/db/models/users';
-import useCompany from '@/server/swr/useCompany';
+import useCompany from '@/swr/useCompany';
 import Image from 'next/image';
 import React, { useState } from 'react';
 

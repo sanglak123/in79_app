@@ -9,7 +9,6 @@ import useCompany from '@/swr/useCompany';
 import RadialMenu from './radiaMenu';
 
 function HeaderMobile(props: { setShowFind: any }) {
-    const { setShowFind } = props;
     //swr
     const Company = useCompany();
     if (Company.error) return "Error load company";

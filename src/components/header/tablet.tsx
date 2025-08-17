@@ -4,14 +4,12 @@ import { FaPhoneVolume } from "react-icons/fa6";
 import { FaClock } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { useState } from "react";
-import { IoMdSearch } from "react-icons/io";
 import Image from "next/image";
 import useCategorys from "@/swr/useCategorys";
 import useCompany from "@/swr/useCompany";
 import useProductDetail from "@/swr/useProductDetail";
 
 export default function TabletHeader(props: { setShowFind: any }) {
-    const { setShowFind } = props;
     const router = useRouter();
     //swr
     const Categorys = useCategorys();

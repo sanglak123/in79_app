@@ -1,7 +1,7 @@
 import { root_axios } from "@/server/api/config";
 import { IProduct } from "@/server/db/models/products";
 import useSWRImmutable from "swr/immutable";
-
+import HttpError from ".";
 
 const fetcher = async (url: string) => {
     const res = await root_axios({
@@ -12,9 +12,7 @@ const fetcher = async (url: string) => {
         const product: IProduct = res.data;
         return product;
     }
-    const error: any = new Error("Not authorized!");
-    error.status = 403;
-    throw error;
+    throw new HttpError("Not authorized!", 403);
 };
 
 export default function useProductDetail(link: string) {

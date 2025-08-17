@@ -1,6 +1,7 @@
 import { root_axios } from "@/server/api/config";
 import { IImage } from "@/server/db/models/images";
 import useSWR from "swr";
+import HttpError from ".";
 
 
 const fetcher = async (url: string) => {
@@ -12,9 +13,7 @@ const fetcher = async (url: string) => {
         const banners: IImage[] = res.data;
         return banners;
     }
-    const error: any = new Error("Not authorized!");
-    error.status = 403;
-    throw error;
+    throw new HttpError("Not authorized!", 403);
 };
 
 export default function useBanners() {
