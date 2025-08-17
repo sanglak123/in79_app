@@ -5,7 +5,12 @@ const root_axios = axios.create({
     baseURL: "/api"
 });
 
+const RenderImageUrl = (folder: string, filename: string) => {
+    return `/img/${folder}/${filename}`;
+}
+
 export {
     root_axios,
-    baseUrl
+    baseUrl,
+    RenderImageUrl
 }
