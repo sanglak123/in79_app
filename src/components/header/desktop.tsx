@@ -94,7 +94,7 @@ export default function DesktopHeader(props: { setShowFind: any }) {
                 </nav>
                 {/* Menu Desktop */}
                 <nav className="container mx-auto relative">
-                    <div className="hidden lg:flex flex-wrap gap-1 border-t transition-all duration-300 py-3">
+                    <div className="hidden lg:flex flex-wrap gap-1 border-t border-gray-300 transition-all duration-300 py-3">
                         <Link
                             href={`/`}
                             className={`px-4 xl:px-6 2xl:px-8 py-3 xl:py-4 text-[0.8rem] sm:text-sm md:text-base xl:text-[1rem] whitespace-nowrap uppercase font-semibold rounded-md transition duration-300 hover:text-blue-600 hover:bg-blue-100 ${router.asPath === "/"
